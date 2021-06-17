@@ -53,9 +53,6 @@ export async function getJobs() {
     };
 
     return fetch(`${root}/job/getall`, options)
-        .then(response => {
-            console.info(response.json());
-            return response.json();
-        })
+        .then(response => response)
         .catch(error => console.log(error));
 }
