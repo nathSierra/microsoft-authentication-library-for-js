@@ -13,11 +13,11 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 export const ProfileData = ({graphData}) => {
     return (
         <List className="profileData">
-            <NameListItem name={graphData.displayName} />
+            {/* <NameListItem name={graphData.displayName} />
             <JobTitleListItem jobTitle={graphData.jobTitle} />
             <MailListItem mail={graphData.mail} />
             <PhoneListItem phone={graphData.businessPhones[0]} />
-            <LocationListItem location={graphData.officeLocation} />
+            <LocationListItem location={graphData.officeLocation} /> */}
         </List>
     );
 };

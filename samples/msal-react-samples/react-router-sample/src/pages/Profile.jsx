@@ -23,10 +23,10 @@ const ProfileContent = () => {
             callMsGraph().then(response => setGraphData(response));
         }
     }, [inProgress, graphData]);
-  
+
     return (
         <Paper>
-            { graphData ? <ProfileData graphData={graphData} /> : null }
+            {/* { graphData ? <ProfileData graphData={graphData} /> : null } */}
         </Paper>
     );
 };
@@ -37,13 +37,13 @@ export function Profile() {
     };
 
     return (
-        <MsalAuthenticationTemplate 
-            interactionType={InteractionType.Popup} 
-            authenticationRequest={authRequest} 
-            errorComponent={ErrorComponent} 
+        <MsalAuthenticationTemplate
+            interactionType={InteractionType.Popup}
+            authenticationRequest={authRequest}
+            errorComponent={ErrorComponent}
             loadingComponent={Loading}
         >
             <ProfileContent />
-        </MsalAuthenticationTemplate>
+       </MsalAuthenticationTemplate>
       )
 };

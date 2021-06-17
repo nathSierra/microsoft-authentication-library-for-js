@@ -9,7 +9,7 @@ import { loginRequest } from "../authConfig";
 import { ProfileData } from "../ui-components/ProfileData";
 import { Loading } from "../ui-components/Loading";
 import { ErrorComponent } from "../ui-components/ErrorComponent";
-import { callMsGraph } from "../utils/MsGraphApiCall";
+import { callMsGraph, getJobs } from "../utils/MsGraphApiCall";
 
 // Material-ui imports
 import Paper from "@material-ui/core/Paper";
@@ -33,7 +33,11 @@ class ProfileContent extends Component {
             callMsGraph().then(response => this.setState({graphData: response}));
         }
     }
-  
+
+    callJobs = () => {
+        getJobs().then(response => console.info(response))
+    }
+
     render() {
         return (
             <Paper>
@@ -50,19 +54,20 @@ class ProfileContent extends Component {
 class Profile extends Component {
 
     render() {
-        
+
         const authRequest = {
             ...loginRequest
         };
 
         return (
-            <MsalAuthenticationTemplate 
-                interactionType={InteractionType.Redirect} 
-                authenticationRequest={authRequest} 
-                errorComponent={ErrorComponent} 
+            <MsalAuthenticationTemplate
+                interactionType={InteractionType.Redirect}
+                authenticationRequest={authRequest}
+                errorComponent={ErrorComponent}
                 loadingComponent={Loading}
             >
-                <ProfileContent msalContext={this.props.msalContext}/>
+                <button onClick={getJobs}>HEYI</button>
+                {/* <ProfileContent msalContext={this.props.msalContext}/> */}
             </MsalAuthenticationTemplate>
         );
     }
